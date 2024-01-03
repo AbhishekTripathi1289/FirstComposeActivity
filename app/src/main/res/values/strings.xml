@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FirstComposeActivity</string>
+    <string name="title_activity_quotes">QuotesActivity</string>
+    <string name="title_activity_quotes_list">QuotesListActivity</string>
 </resources>
