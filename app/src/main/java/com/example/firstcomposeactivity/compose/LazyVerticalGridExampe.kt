@@ -33,9 +33,10 @@ import com.example.firstcomposeactivity.R
 fun LazyVerticalGridExample()
 {
     var list = listOf<String>("abc", "dafs", "SADf", "dsaf", "dsaf", "adsf", "gjk")
-    LazyVerticalGrid( columns = GridCells.Fixed(2) ,
+    LazyVerticalGrid( columns =GridCells.Fixed(2) ,
         contentPadding = PaddingValues(5.dp),
-        verticalArrangement = Arrangement.SpaceBetween, modifier = Modifier.padding(top = 20.dp, end = 10.dp))
+        verticalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier.padding(top = 20.dp, end = 10.dp))
     {
 
         items(list)

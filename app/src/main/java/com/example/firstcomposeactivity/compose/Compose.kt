@@ -11,6 +11,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,18 +22,26 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.List
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -46,9 +55,16 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.firstcomposeactivity.R
@@ -73,7 +89,8 @@ fun ShareStateBetweenComposableExampleFirst(value : Int, callback:() -> Unit)
     Log.d("xxxyy", "Compose first")
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(text = "you have sent $value Notification")
-        Button(onClick = { callback.invoke()}) {
+        Button(onClick = { callback.invoke()}, colors = ButtonDefaults.buttonColors(Color.Red),
+            elevation = ButtonDefaults.buttonElevation(4.dp)) {
             Text(text = "Send Notification")
         }
     }
@@ -86,9 +103,20 @@ fun ShareStateBetweenComposableExampleSecond(value : Int)
     Log.d("xxxyy", "Compose second")
     Card(elevation = CardDefaults.cardElevation(8.dp), shape = RoundedCornerShape(8.dp),  modifier = Modifier.padding(vertical = 20.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(10.dp)) {
-           Image( painter = painterResource(id = R.drawable.profile_icon), contentDescription = "", modifier = Modifier.size(30.dp).clip(
-               CircleShape).border(2.dp, Color.Black, CircleShape))
-            Text(text = "Message sent so far- $value", modifier = Modifier.padding(horizontal = 10.dp))
+           Image( painter = painterResource(id = R.drawable.profile_icon), contentDescription = "", modifier = Modifier
+               .size(30.dp)
+               .clip(
+                   CircleShape
+               )
+               .border(2.dp, Color.Black, CircleShape))
+            Text(text = "Message sent so far- $value", modifier = Modifier.padding(horizontal = 10.dp),
+                lineHeight = 10.sp,
+                letterSpacing = 20.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                textDecoration = TextDecoration.Underline,
+                )
+
         }
     }
 }
@@ -136,15 +164,22 @@ fun SnackBarExample()
     }
     val coroutineScope = rememberCoroutineScope()
 
+
     Scaffold(modifier = Modifier.fillMaxSize(), snackbarHost = {
         SnackbarHost(snackbarHostState)
     }) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center
+        Column (horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center
             , modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 30.dp)) {
+                .padding(horizontal = 30.dp)
+                .toggleable(
+                    value = false,
+                    onValueChange = {// TODO:  change here your required value like state     
+                    },
+                    role = Role.Checkbox
+                )) {
 
-            TextField(value = textViewState.value, 
+            TextField(value = textViewState.value,
                 onValueChange = {
                 textViewState.value = it
             }, singleLine = true,
@@ -157,7 +192,7 @@ fun SnackBarExample()
                 coroutineScope.launch {
                     snackbarHostState.showSnackbar(message = "Hello ${textViewState.value}")
                 }
-            }
+            },
             ) {
                 Text(text = "Click Me")
             }
@@ -242,6 +277,41 @@ fun ClickColorChange(modifiers: Modifier = Modifier, callback : (Color)->Unit){
             callback.invoke(Color(Random.nextFloat(), Random.nextFloat(), Random.nextFloat()))
         })
 
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TextFieldDetailExmplinationCompose()
+{
+    var data= remember {
+        mutableStateOf("")
+    }
+    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+        TextField(value = data.value, onValueChange = {
+            data.value = it
+        },
+            label = {
+                Text(text = "Text Field 1")
+            },
+            placeholder = {
+                Text(text = "Please Enter Me")
+            },
+            leadingIcon = {
+                Icon(Icons.Default.Person, contentDescription = "")
+            },
+            trailingIcon = {
+                Icon(Icons.Default.List, contentDescription = "")
+            },
+            isError = true,
+            visualTransformation = PasswordVisualTransformation(),
+            colors = TextFieldDefaults.textFieldColors(focusedIndicatorColor = Color.Red,
+                containerColor = Color.Blue,
+                textColor = Color.White),
+            keyboardOptions = KeyboardOptions(capitalization = KeyboardCapitalization.Words,
+                keyboardType = KeyboardType.Text, imeAction = ImeAction.Done),
+            shape = RoundedCornerShape(10.dp)
+        )
+    }
 }
 
 
