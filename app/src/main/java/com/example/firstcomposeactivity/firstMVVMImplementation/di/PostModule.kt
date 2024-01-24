@@ -1,5 +1,6 @@
 package com.example.firstcomposeactivity.firstMVVMImplementation.di
 
+import com.example.firstcomposeactivity.firstMVVMImplementation.model.BuilderExample
 import com.example.firstcomposeactivity.firstMVVMImplementation.network.PostApi
 import com.example.firstcomposeactivity.firstMVVMImplementation.util.Constants.BASE_URL
 import dagger.Module
@@ -18,6 +19,7 @@ object PostModule
     @Singleton
     fun provideRetrofit():Retrofit
     {
+
         return Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create()).build()
     }
     @Provides

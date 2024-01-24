@@ -116,7 +116,8 @@ fun DisposableEffectSideEffectExample()
 {
     val context = LocalContext.current
     DisposableEffect(Unit){
-        val mediaPlayer = MediaPlayer.create(context, com.google.android.material.R.layout.material_clockface_textview)
+        val mediaPlayer = MediaPlayer.create(context,
+            com.google.android.material.R.layout.material_clockface_textview)
         mediaPlayer.start()
 
         onDispose {

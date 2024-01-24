@@ -32,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.firstcomposeactivity.compose.MainScreenWithBottomNavigation
 import com.example.firstcomposeactivity.compose.NavigationDrawerExampleCompose
+import com.example.firstcomposeactivity.compose.PracticeComose
 import com.example.firstcomposeactivity.compose.PracticeCompose
 import com.example.firstcomposeactivity.compose.RadioGroupButtonCompose
 import com.example.firstcomposeactivity.compose.SnackBarExample
@@ -49,7 +50,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FirstComposeActivityTheme{
-                MainScreenWithBottomNavigation()
+                PracticeComose()
             }
 
         }

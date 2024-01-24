@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.List
@@ -17,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import kotlinx.coroutines.launch
 
 
@@ -25,6 +27,8 @@ fun NavigationDrawerExampleCompose()
 {
     var scafoldStateValue = rememberScaffoldState()
     var corutineScope = rememberCoroutineScope()
+    var navhostController = rememberNavController()
+
 
     androidx.compose.material.Scaffold(scaffoldState = scafoldStateValue, drawerContent = {
         Column {

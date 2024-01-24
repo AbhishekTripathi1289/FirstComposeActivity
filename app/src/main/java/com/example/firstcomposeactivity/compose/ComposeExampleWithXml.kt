@@ -1,5 +1,6 @@
 package com.example.firstcomposeactivity.compose
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
@@ -11,6 +12,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.example.firstcomposeactivity.R
 
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun ComposeWithXml()
 {
