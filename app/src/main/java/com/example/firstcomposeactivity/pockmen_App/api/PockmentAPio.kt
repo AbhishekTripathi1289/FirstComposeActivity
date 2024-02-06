@@ -1,0 +1,17 @@
+package com.example.firstcomposeactivity.pockmen_App.api
+
+import com.plcoding.jetpackcomposepokedex.data.remote.responses.Pokemon
+import com.plcoding.jetpackcomposepokedex.data.remote.responses.PokemonList
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
+
+interface PokemonApi
+{
+    @GET("pokemon")
+    suspend fun getPockmentList(@Query("limit") limit: Int,
+                                @Query("offset") offset: Int):Response<PokemonList>
+    @GET("pokemon/{name}")
+    suspend fun getPockmenInfo(@Path("name") name: String?): Response<Pokemon>
+}

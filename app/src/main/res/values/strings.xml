@@ -4,4 +4,8 @@
     <string name="title_activity_quotes_list">QuotesListActivity</string>
     <string name="title_activity_first_mvvm_implementation">FirstMvvmImplementation</string>
     <string name="title_activity_phillip_lacker_home">PhillipLackerHomeActivity</string>
+    <string name="title_activity_pockmen">PockmenActivity</string>
+    <string name="stay_with_your_friends">Stay connected with your friends and family</string>
+    <string name="secure_private_messaging">Secure, private messaging</string>
+
 </resources>

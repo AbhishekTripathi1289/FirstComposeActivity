@@ -16,7 +16,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstComposeActivity"
         tools:targetApi="31">
-      <!--  <activity
+        <!--<activity-->
+       <!--     android:name=".pockmen_App.ui_screen.PockmenActivity"
+            android:exported="false"
+            android:label="@string/title_activity_pockmen"
+            android:theme="@style/Theme.FirstComposeActivity" />-->
+        <!--
+          <activity
             android:name=".philiipLacknerFirstScreenCompose.PhillipLackerHomeActivity"
             android:exported="true"
             android:label="@string/title_activity_phillip_lacker_home"
@@ -26,7 +32,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
+        </activity>
+        -->
         <!--
         <activity
             android:name=".quateAppCheezyCode.ui.QuotesListActivity"

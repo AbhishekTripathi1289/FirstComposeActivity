@@ -125,14 +125,20 @@ fun ShareStateBetweenComposableExampleSecond(value : Int)
 fun ImageComposable()
 {
 
-    Image(contentScale = ContentScale.Crop,
-        painter = painterResource(id = R.drawable.image_first),
-        contentDescription = "",
-        modifier = Modifier
-            .border(3.dp, Color.Black, CircleShape)
-            .clip(
-                RectangleShape
-            ))
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(contentScale = ContentScale.Crop,
+            painter = painterResource(id = R.drawable.image_first),
+            contentDescription = "",
+            modifier = Modifier.size(100.dp)
+                .border(3.dp, Color.Black, CircleShape)
+                .clip(
+                    CircleShape
+                ))
+    }
+
 }
 
 

@@ -90,7 +90,9 @@ fun ShowPostListCompose(data: List<PostItem>) {
                     containerColor = Color.White,
                 )) {
                 Log.d("####", isAlertDialogShow.value.toString())
-                AlertDialog(isAlertDialogShow)
+                AlertDialog(isAlertDialogShow = isAlertDialogShow){
+
+                }
                 Text(text = post.body!!, fontSize = 25.sp,
                     style = MaterialTheme.typography.bodyMedium, modifier = Modifier
                         .padding(10.dp))

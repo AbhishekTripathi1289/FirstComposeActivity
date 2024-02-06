@@ -77,6 +77,7 @@ fun RememberCoroutineScopeSideEffect()
         mutableStateOf(emptyList<String>())
     }
 
+
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.TopCenter)
     {
         Button(onClick = { context.launch { data.value = fetchDataFromApi() } }) {
@@ -138,7 +139,6 @@ fun ProduceStateSideEffectExample()
     }
     var state = produceState(initialValue = 0, producer = {
         Log.d("####", "producered called")
-
         while (value <10)
         {
             delay(1000)
