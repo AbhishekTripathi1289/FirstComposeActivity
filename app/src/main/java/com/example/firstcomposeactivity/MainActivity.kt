@@ -37,12 +37,15 @@ import androidx.compose.ui.unit.dp
 import com.example.firstcomposeactivity.NotesApp.composes.NotesListCompose
 import com.example.firstcomposeactivity.NotesApp.viewmodel.NotesViewModel
 import com.example.firstcomposeactivity.chatApp.Composes.MainNavigation
+import com.example.firstcomposeactivity.compose.CheckBoxComposable
 import com.example.firstcomposeactivity.compose.MainScreenWithBottomNavigation
 import com.example.firstcomposeactivity.compose.NavigationDrawerExampleCompose
 import com.example.firstcomposeactivity.compose.PracticeCompose
 import com.example.firstcomposeactivity.compose.RadioGroupButtonCompose
 import com.example.firstcomposeactivity.compose.SnackBarExample
+import com.example.firstcomposeactivity.compose.SwitchComposable
 import com.example.firstcomposeactivity.pizzaApp.composes.PizzAppHomeScreenCompose
+import com.example.firstcomposeactivity.starbucks.compose.StarBuckNavigation
 import com.example.firstcomposeactivity.ui.theme.FirstComposeActivityTheme
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.ramcosta.composedestinations.DestinationsNavHost
@@ -60,7 +63,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FirstComposeActivityTheme{
-               MainNavigation()
+                SwitchComposable()
             }
         }
     }

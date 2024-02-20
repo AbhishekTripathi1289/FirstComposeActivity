@@ -43,6 +43,7 @@ import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import com.example.firstcomposeactivity.compose.ConstraintLayoutExample
+import com.example.firstcomposeactivity.compose.GenericCompose.CircularImageComposable
 import com.example.firstcomposeactivity.models.ChatScreens
 import com.example.firstcomposeactivity.models.Person
 import com.example.firstcomposeactivity.models.personList
@@ -170,11 +171,7 @@ fun UserStatusComposable(modifier: Modifier = Modifier,
     }
 }
 
-@Composable
-fun CircularImageComposable(@DrawableRes icon: Int , modifier: Modifier)
-{
-    Image(painter = painterResource(id = icon), contentDescription = "", modifier = modifier)
-}
+
 
 @Composable
 fun AddStoryItemComposable(modifier: Modifier = Modifier) {

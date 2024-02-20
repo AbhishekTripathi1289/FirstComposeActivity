@@ -7,5 +7,7 @@
     <string name="title_activity_pockmen">PockmenActivity</string>
     <string name="stay_with_your_friends">Stay connected with your friends and family</string>
     <string name="secure_private_messaging">Secure, private messaging</string>
+    <string name="title_activity_news">NewsActivity</string>
+    <string name="news_app">News App</string>
 
 </resources>

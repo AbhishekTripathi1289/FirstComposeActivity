@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.firstcomposeactivity.R
+import com.example.firstcomposeactivity.compose.GenericCompose.ButtonWithCornerComposable
 import com.example.firstcomposeactivity.models.ChatScreens
 import com.example.firstcomposeactivity.ui.theme.Aqua
 
@@ -94,20 +95,6 @@ fun HomeScreenCompose(navController: NavController) {
 }
 
 
-@Composable
-fun ButtonWithCornerComposable(modifier: Modifier, backGroundColor: Color,
-                               foregroundColor: Color, text: String,
-                               fontSize: TextUnit,
-                               fontWeight: FontWeight,
-                               shape: Shape
-                              , callback: ()-> Unit) {
-
-
-    Button(onClick = { callback.invoke() }, modifier = modifier, colors = ButtonDefaults.buttonColors(containerColor = backGroundColor,
-        contentColor = foregroundColor), shape = shape ) {
-        Text(text = text, fontSize = fontSize, fontWeight = fontWeight)
-    }
-}
 @Composable
 fun GenericImageCompose(modifier: Modifier, @DrawableRes res: Int,) {
 

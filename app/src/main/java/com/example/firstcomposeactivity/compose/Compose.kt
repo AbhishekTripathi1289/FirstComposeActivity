@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.graphics.drawable.Icon
 import android.util.Log
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -90,7 +91,8 @@ fun ShareStateBetweenComposableExampleFirst(value : Int, callback:() -> Unit)
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(text = "you have sent $value Notification")
         Button(onClick = { callback.invoke()}, colors = ButtonDefaults.buttonColors(Color.Red),
-            elevation = ButtonDefaults.buttonElevation(4.dp)) {
+            elevation = ButtonDefaults.buttonElevation(4.dp)
+        ) {
             Text(text = "Send Notification")
         }
     }
@@ -147,7 +149,13 @@ fun ButtonInComposable(){
 
     Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize())
     {
-        Button(colors = ButtonDefaults.buttonColors(contentColor = Color.Red,  containerColor = Color.Black),  onClick = { Log.d("dsaf", "dsfa")  }) {
+        Button(
+            colors = ButtonDefaults.buttonColors(
+                contentColor = Color.Red,
+                containerColor = Color.Black
+            ),
+            onClick = { Log.d("dsaf", "dsfa") }
+        ) {
 
             Text(text = "Hello world")
             Image(painter = painterResource(id = R.drawable.image_first), contentDescription ="kjj" , modifier = Modifier

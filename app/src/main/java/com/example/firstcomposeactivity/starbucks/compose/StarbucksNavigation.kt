@@ -19,12 +19,12 @@ fun StarBuckNavigation() {
     var navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = StarBuckScreen.StartScreen.route){
-        composable(ChatScreens.HomeScreen.route){
-
+        composable(StarBuckScreen.StartScreen.route){
+        StartBuckStartScreen(navController = navController)
         }
 
         composable(StarBuckScreen.HomeScreen.route){
-
+        StartBuckHomeScreenCompose(navController)
         }
 
         composable(StarBuckScreen.ProductDetailScreen.route){

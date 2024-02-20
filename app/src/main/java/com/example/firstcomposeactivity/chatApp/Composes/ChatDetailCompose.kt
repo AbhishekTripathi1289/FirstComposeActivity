@@ -41,10 +41,12 @@ import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import com.example.firstcomposeactivity.R
+import com.example.firstcomposeactivity.compose.GenericCompose.CircularImageComposable
 import com.example.firstcomposeactivity.models.Chat
 import com.example.firstcomposeactivity.models.ChatScreens
 import com.example.firstcomposeactivity.models.Person
 import com.example.firstcomposeactivity.models.chatList
+import com.example.firstcomposeactivity.ui.theme.Background
 import com.example.firstcomposeactivity.ui.theme.LightRed
 import com.example.firstcomposeactivity.ui.theme.LightYellow
 import com.example.firstcomposeactivity.ui.theme.Pink80
@@ -169,7 +171,7 @@ fun ChatMessageItemCompose(modifier: Modifier = Modifier, chat: Chat) {
 @Composable
 fun TopHeaderCompose(person: Person?) {
     ConstraintLayout(modifier = Modifier
-        .fillMaxWidth()
+        .fillMaxWidth().background(Background)
         .padding(start = 16.dp, end = 16.dp, top = 30.dp)){
 
         var (image, name, okay, time) = createRefs()

@@ -16,11 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstComposeActivity"
         tools:targetApi="31">
-        <!--<activity-->
-       <!--     android:name=".pockmen_App.ui_screen.PockmenActivity"
+<!--        <activity
+            android:name=".newsApp.ui.NewsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_news"
+            android:theme="@style/Theme.FirstComposeActivity" />-->
+        <!-- <activity -->
+        <!--
+     android:name=".pockmen_App.ui_screen.PockmenActivity"
             android:exported="false"
             android:label="@string/title_activity_pockmen"
-            android:theme="@style/Theme.FirstComposeActivity" />-->
+            android:theme="@style/Theme.FirstComposeActivity" />
+        -->
         <!--
           <activity
             android:name=".philiipLacknerFirstScreenCompose.PhillipLackerHomeActivity"
