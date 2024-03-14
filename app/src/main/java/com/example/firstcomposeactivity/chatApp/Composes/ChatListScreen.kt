@@ -78,30 +78,42 @@ fun ChatListScreen(navController: NavController) {
 @Composable
 fun ChatListCompose(modifier: Modifier = Modifier,navController: NavController)
 {
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .fillMaxHeight()
-        .padding(top = 10.dp)
-        .background(
-            Color.White,
-            RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp)
-        ), horizontalAlignment = Alignment.CenterHorizontally) {
 
-        Spacer(modifier = Modifier
-            .padding(vertical = 8.dp)
-            .width(100.dp)
-            .height(5.dp)
-            .background(Color.Gray, CircleShape))
 
-        LazyColumn(modifier = Modifier.padding(bottom = 10.dp)){
-            itemsIndexed(personList){ index, item ->
-                UserChatItemComposable(person = item){
-                navController.currentBackStackEntry?.savedStateHandle?.set<Person>("userData", it)
+        LazyColumn(modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(top = 10.dp).padding(bottom = 10.dp)
+            .background(
+                Color.White,
+                RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp)
+            )) {
+
+            item {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Spacer(
+                        modifier = Modifier
+                            .padding(vertical = 8.dp)
+                            .width(100.dp)
+                            .height(5.dp)
+                            .background(Color.Gray, CircleShape)
+                    )
+                }
+            }
+
+            itemsIndexed(personList) { index, item ->
+                UserChatItemComposable(person = item) {
+                    navController.currentBackStackEntry?.savedStateHandle?.set<Person>(
+                        "userData",
+                        it
+                    )
                     navController.navigate(ChatScreens.ChatDetailScreen.route)
                 }
             }
         }
-    }
 }
 
 @Composable

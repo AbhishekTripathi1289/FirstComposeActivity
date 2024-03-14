@@ -149,9 +149,12 @@ fun CommonIconButton(
 @Composable
 fun ChatMessageItemCompose(modifier: Modifier = Modifier, chat: Chat) {
     
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .padding(start = 16.dp, end = 16.dp), horizontalAlignment = if(chat.direction) Alignment.Start else Alignment.End) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 16.dp, end = 16.dp),
+        horizontalAlignment = if (chat.direction) Alignment.Start else Alignment.End
+    ) {
         
         
         Text(text = chat.message,
@@ -171,7 +174,7 @@ fun ChatMessageItemCompose(modifier: Modifier = Modifier, chat: Chat) {
 @Composable
 fun TopHeaderCompose(person: Person?) {
     ConstraintLayout(modifier = Modifier
-        .fillMaxWidth().background(Background)
+        .fillMaxWidth()
         .padding(start = 16.dp, end = 16.dp, top = 30.dp)){
 
         var (image, name, okay, time) = createRefs()

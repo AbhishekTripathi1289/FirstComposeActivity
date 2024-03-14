@@ -34,6 +34,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.activity.viewModels
+import androidx.activity.viewModels
 import com.example.firstcomposeactivity.NotesApp.composes.NotesListCompose
 import com.example.firstcomposeactivity.NotesApp.viewmodel.NotesViewModel
 import com.example.firstcomposeactivity.chatApp.Composes.MainNavigation
@@ -44,6 +46,8 @@ import com.example.firstcomposeactivity.compose.PracticeCompose
 import com.example.firstcomposeactivity.compose.RadioGroupButtonCompose
 import com.example.firstcomposeactivity.compose.SnackBarExample
 import com.example.firstcomposeactivity.compose.SwitchComposable
+import com.example.firstcomposeactivity.compose.ViewPagerWithIndicatorLibraryExampleCompose
+import com.example.firstcomposeactivity.firstMVVMImplementation.viewmodel.PostViewModel
 import com.example.firstcomposeactivity.pizzaApp.composes.PizzAppHomeScreenCompose
 import com.example.firstcomposeactivity.starbucks.compose.StarBuckNavigation
 import com.example.firstcomposeactivity.ui.theme.FirstComposeActivityTheme
@@ -55,6 +59,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    val  notesViewModel : NotesViewModel by viewModels()
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter",
         "UnusedMater" +
                 "ialScaffoldPaddingParameter"
@@ -63,7 +68,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FirstComposeActivityTheme{
-                SwitchComposable()
+                NotesListCompose(modifier = Modifier,notesViewModel)
             }
         }
     }

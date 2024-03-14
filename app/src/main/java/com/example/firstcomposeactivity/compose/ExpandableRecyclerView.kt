@@ -48,6 +48,7 @@ fun ExpandableRecyclerViewCompose()
 
             item {
 
+
                 Row(modifier = Modifier
                     .fillMaxWidth().toggleable(
                         value = animalState[key]==true,

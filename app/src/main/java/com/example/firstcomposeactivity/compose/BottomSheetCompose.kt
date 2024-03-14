@@ -42,6 +42,7 @@ fun BottomSheetCompose() {
     var bottomSheetState = rememberBottomSheetState(initialValue = BottomSheetValue.Collapsed)
     var scaffoldState = rememberBottomSheetScaffoldState(bottomSheetState = bottomSheetState)
 
+
     BottomSheetScaffold(sheetContent = {
         Box(modifier = Modifier.fillMaxWidth().height(300.dp), contentAlignment = Alignment.Center){
             Text(text = "I am bottom Sheet")

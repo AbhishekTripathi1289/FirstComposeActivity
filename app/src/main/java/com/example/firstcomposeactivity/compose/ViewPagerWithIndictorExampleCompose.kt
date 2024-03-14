@@ -41,7 +41,7 @@ fun ViewPagerWithIndicatorLibraryExampleCompose()
         }
         HorizontalPagerIndicator(pagerState = pagerState,
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            activeColor = colorResource(id = R.color.black))
+            activeColor = colorResource(id = R.color.black), indicatorWidth = 20.dp, indicatorHeight = 20.dp)
 
         AnimatedVisibility(visible = pagerState.currentPage == 2) {
           OutlinedButton(onClick = { /*TODO*/ }, modifier = Modifier.fillMaxWidth()) {

@@ -16,7 +16,7 @@ class NewsRepo @Inject constructor(var newsApiInterface: NewsApiInterface)
         return flow {
             try {
                 emit(DataState.Loading)
-                var response = newsApiInterface.getNewsList(apiKey = API_KEY, sortBy = "publishedAt", filerQuery = filterQuery, from = "2024-01-12")
+                var response = newsApiInterface.getNewsList(apiKey = API_KEY, sortBy = "publishedAt", filerQuery = filterQuery, from = "2024-02-12")
                 if(response.isSuccessful && response.body() != null)
                 {
                     response.body()?.let {
